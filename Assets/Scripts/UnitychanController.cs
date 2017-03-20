@@ -7,6 +7,7 @@ public class UnitychanController : MonoBehaviour {
     Animator animator;
     AnimatorStateInfo animStateInfo;
     public bool Gflg;
+    CanvasController CanvasController;
 
     // Use this for initialization
     void Start()
@@ -14,6 +15,7 @@ public class UnitychanController : MonoBehaviour {
         speed = 0.05f;
         animator = this.GetComponent<Animator>();
         Gflg = false;
+        CanvasController = GetComponent<CanvasController>();
     }
 
     // Update is called once per frame
@@ -42,8 +44,10 @@ public class UnitychanController : MonoBehaviour {
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        //Debug.Log(other.gameObject.name);
+        if(other.collider.CompareTag("Enemy"))
         {
+            Debug.Log("Damage");
             CanvasController.Life -= 1;
             speed = 0;
             Destroy(other.gameObject);
@@ -56,6 +60,13 @@ public class UnitychanController : MonoBehaviour {
             {
                 animator.SetTrigger("Damage");
             }
+        }
+        else if (other.collider.CompareTag("Damage"))
+        {
+            Debug.Log("Attack");
+            CanvasController.Score += 100;
+            animator.SetTrigger("Jump");
+            this.GetComponent<Rigidbody>().AddForce(Vector3.up * 10f, ForceMode.Impulse);
         }
     }
 

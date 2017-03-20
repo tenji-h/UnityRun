@@ -25,6 +25,7 @@ public class EnemyController : MonoBehaviour {
         if (Mathf.Floor(player.transform.position.z) == -65 && AreaFlg1 == 0)
         {
             Instantiate(Enemy1, new Vector3(0, 0, -50), Quaternion.Euler(0, 180, 0));
+            Instantiate(Enemy1, new Vector3(0, 0, -40), Quaternion.Euler(0, 180, 0));
             Instantiate(Enemy1, new Vector3(0, 0, -35), Quaternion.Euler(0, 180, 0));
             AreaFlg1 = 1;
         }

@@ -6,11 +6,11 @@ public class UnitychanRunController : MonoBehaviour {
 
     [SerializeField]
     private UnitychanController unitychanController;
-    bool EFlg;
+    //bool EFlg;
 
     void Start()
     {
-        EFlg = false;
+        //EFlg = false;
     }
 
     void Update()
@@ -47,10 +47,10 @@ public class UnitychanRunController : MonoBehaviour {
         }
     }
 
-    IEnumerator WaitT(float T)
-    {
-        yield return new WaitForSeconds(T);
-        EFlg = true;
-    }
+    //IEnumerator WaitT(float T)
+    //{
+    //    yield return new WaitForSeconds(T);
+    //    EFlg = true;
+    //}
 
 }

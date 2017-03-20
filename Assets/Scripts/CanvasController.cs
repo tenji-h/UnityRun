@@ -19,7 +19,7 @@ public class CanvasController : MonoBehaviour {
     {
         S1canvas = GameObject.FindObjectOfType<Canvas>();
         enabled = false;
-        Life = 1;
+        Life = 3;
         Endtime = 180;
         Score = 0;
         Scoretime = 0;
@@ -105,10 +105,15 @@ public class CanvasController : MonoBehaviour {
     {
         //GameObject.Find("unitychan").GetComponent<UnitychanController>().enabled = false;
         //GameObject.Find("unitychan").GetComponent<Animator>().enabled = false;
+        var clones = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(var clone in clones)
+        {
+            Destroy(clone);
+        }
+
         CenterText.text = "ゲーム オーバー";
         SetActive("Button1", true);
         SetActive("Button2", true);
-
-
+        
     }
 }
