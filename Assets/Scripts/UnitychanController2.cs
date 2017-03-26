@@ -6,6 +6,8 @@ public class UnitychanController2 : MonoBehaviour {
     public float speed;
     Animator animator;
     AnimatorStateInfo animStateInfo;
+    public bool Gflg;
+    public bool Kflg;
 
     // Use this for initialization
     void Start()
@@ -29,10 +31,7 @@ public class UnitychanController2 : MonoBehaviour {
         }
 
         transform.RotateAround(Vector3.zero, Vector3.up, -15*Time.deltaTime);
-        //transform.Rotate(new Vector3(0, -5f, 0));
-        transform.eulerAngles = new Vector3(0, 90, 0);
-        //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        //transform.position += transform.forward * speed;
+        transform.eulerAngles += new Vector3(0f, -0.02f, 0f);
 
     }
 

@@ -13,6 +13,7 @@ public class BatController : MonoBehaviour {
         speed = 0.07f;
         st = this.transform.position;
         player = GameObject.Find("unitychan").transform;
+
     }
 
     // Update is called once per frame
@@ -25,9 +26,9 @@ public class BatController : MonoBehaviour {
         transform.position += transform.forward * speed;
 
         float dis = Vector3.Distance(st, this.transform.position);
-        if (dis > 15f)
+        if (GameObject.Find("unitychan").GetComponent<UnitychanController>().Kflg)
         {
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
 
     }

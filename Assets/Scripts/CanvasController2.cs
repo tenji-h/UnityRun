@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class CanvasController : MonoBehaviour {
+public class CanvasController2 : MonoBehaviour {
 
     // Use this for initialization
     static Canvas S1canvas;
@@ -24,21 +24,24 @@ public class CanvasController : MonoBehaviour {
         Score = 0;
         Scoretime = 0;
 
-        CenterText.text = "ダンジョンを目指せ！";
-        yield return new WaitForSeconds(2f);
-        CenterText.text = "３";
-        yield return new WaitForSeconds(1f);
-        CenterText.text = "２";
-        yield return new WaitForSeconds(1f);
-        CenterText.text = "１";
-        yield return new WaitForSeconds(1f);
-        CenterText.text = "ＳＴＡＲＴ";
-        yield return new WaitForSeconds(1f);
-        CenterText.text = "";
-        GameObject.Find("unitychan").GetComponent<UnitychanController>().enabled = true;
+        //CenterText.text = "ボスを倒せ！";
+        //yield return new WaitForSeconds(2f);
+        //CenterText.text = "３";
+        //yield return new WaitForSeconds(1f);
+        //CenterText.text = "２";
+        //yield return new WaitForSeconds(1f);
+        //CenterText.text = "１";
+        //yield return new WaitForSeconds(1f);
+        //CenterText.text = "ＳＴＡＲＴ";
+        //yield return new WaitForSeconds(1f);
+        //CenterText.text = "";
+        GameObject.Find("unitychan").GetComponent<UnitychanController2>().enabled = true;
         GameObject.Find("unitychan").GetComponent<Animator>().enabled = true;
+        GameObject.Find("Main Camera").GetComponent<CameraScript2>().enabled = true;
 
         enabled = true;
+
+        yield return null;
     }
 
     // Update is called once per frame
@@ -78,7 +81,7 @@ public class CanvasController : MonoBehaviour {
 
     public void Goalmessage()
     {
-        CenterText.text = "ゴ ー ル ";
+        CenterText.text = "ク リ ア";
 
     }
 
@@ -101,14 +104,6 @@ public class CanvasController : MonoBehaviour {
     // ゲームオーバー処理
     public void SetGameover()
     {
-        //GameObject.Find("unitychan").GetComponent<UnitychanController>().enabled = false;
-        //GameObject.Find("unitychan").GetComponent<Animator>().enabled = false;
-        var clones = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach(var clone in clones)
-        {
-            Destroy(clone);
-        }
-
         CenterText.text = "ゲーム オーバー";
         SetActive("Button1", true);
         SetActive("Button2", true);

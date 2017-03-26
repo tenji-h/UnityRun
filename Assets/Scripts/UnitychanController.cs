@@ -7,6 +7,7 @@ public class UnitychanController : MonoBehaviour {
     Animator animator;
     AnimatorStateInfo animStateInfo;
     public bool Gflg;
+    public bool Kflg;
     CanvasController CanvasController;
 
     // Use this for initialization
@@ -15,6 +16,7 @@ public class UnitychanController : MonoBehaviour {
         speed = 0.05f;
         animator = this.GetComponent<Animator>();
         Gflg = false;
+        Kflg = false;
         CanvasController = GetComponent<CanvasController>();
     }
 
@@ -74,14 +76,16 @@ public class UnitychanController : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Finish"))
         {
-            Gflg = true;
+            Kflg = true;
             for (int i = 1; i < 5; i++)
             {
                 speed -= 0.01f;
                 yield return new WaitForSeconds(1f);
             }
-            animator.SetTrigger("Goal");
             speed = 0;
+            animator.SetTrigger("Goal");
+            yield return new WaitForSeconds(1.5f);
+            Gflg = true;
         }
     }
 
